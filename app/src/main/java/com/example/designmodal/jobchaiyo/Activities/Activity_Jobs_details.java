@@ -2,18 +2,25 @@ package com.example.designmodal.jobchaiyo.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.R;
 
-public class Activity_Jobs_details extends AppCompatActivity {
+public class Activity_Jobs_details extends CommonMenuActivity
+{
+    TextView company_name,title,vacancy,experience_required,education_required,location,type_job,vacancy_deadline,
+            specification_job,description_job;
+    Button apply_now;
+    String job_id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        TextView company_name,title,vacancy,experience_required,education_required,location,type_job,vacancy_deadline,
-                specification_job,description_job;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__jobs_details);
 
@@ -27,8 +34,7 @@ public class Activity_Jobs_details extends AppCompatActivity {
         description_job = (TextView) findViewById(R.id.job_description);
         education_required = (TextView) findViewById(R.id.education);
         company_name = (TextView) findViewById(R.id.company);
-
-
+        apply_now = (Button) findViewById(R.id.apply_now);
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if(bd != null)
@@ -43,6 +49,7 @@ public class Activity_Jobs_details extends AppCompatActivity {
             String deadline = (String) bd.get("deadline");
             String job_Description = (String) bd.get("job_Description");
             String companyName = (String) bd.get("company_name");
+             job_id = (String) bd.get("job_id");
 
             //setting the job description value
             title.setText(job_title);
@@ -55,8 +62,17 @@ public class Activity_Jobs_details extends AppCompatActivity {
             description_job.setText(job_Description);
             specification_job.setText(job_specification);
             company_name.setText(companyName);
-//            WebView w1 = (WebView) findViewById(R.id.webView);
-//            w1.loadUrl(Url);
         }
+        apply_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(Activity_Jobs_details.this,Apply_Now.class);
+                intent.putExtra("job_id",job_id);
+                Toast.makeText(Activity_Jobs_details.this, job_id, Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
+
 }

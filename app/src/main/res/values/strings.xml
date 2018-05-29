@@ -5,4 +5,26 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="pref_file">com.example.designmodal.preference_file</string>
+    <string name="pref_login_status">com.example.designmodal.preference_login_status</string>
+
+    <string name="pref_user_name">com.example.designmodal.preference_user_name</string>
+    <string name="pref_company_name">com.example.designmodal.preference_company_name</string>
+    <string name="pref_company_address">com.example.designmodal.preference_company_address</string>
+    <string name="pref_website">com.example.designmodal.preference_website</string>
+    <string name="pref_contact_person">com.example.designmodal.preference_contact_person</string>
+    <string name="pref_office_no">com.example.designmodal.preference_office_no</string>
+    <string name="pref_mobile_no">com.example.designmodal.preference_mobile_no</string>
+    <string name="pref_email">com.example.designmodal.preference_email</string>
+    <string name="pref_opt_email">com.example.designmodal.preference_opt_email</string>
+    <string name="pref_password">com.example.designmodal.preference_password</string>
+    <string name="pref_id">com.example.designmodal.preference_id</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2_tab">Main2ActivityTab</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_contact__us">Map</string>
 </resources>

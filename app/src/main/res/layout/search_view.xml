@@ -1,104 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/home_layout">
-
-    <LinearLayout
-        android:layout_below="@+id/formTitle"
+    <ScrollView
+        android:background="@drawable/background_style"
         android:padding="10dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000a13">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search Job"
-            android:textColor="#fff"
-            android:textSize="35sp"
-            android:padding="5dp"/>
+        android:layout_height="match_parent"
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_style"
-            android:padding="5dp"
-            android:id="@+id/search_job"
-            android:hint="Search Job"/>
-
+        >
         <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="2"
+
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <Spinner
-                android:layout_margin="5dp"
-                android:id="@+id/job_category"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                />
-            <Spinner
-                android:layout_margin="5dp"
-                android:background="@drawable/edittext_style"
-                android:id="@+id/job_type"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Job"
+                android:textSize="35sp"
+                android:padding="5dp"/>
 
-                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/edittext1"
+                android:inputType="text"
+                android:id="@+id/search_job"
+                android:hint="Search Job"/>
 
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:layout_margin="5dp"
-                android:background="@drawable/edittext_style"
-                android:id="@+id/job_education"
-                android:padding="5dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                />
-            <Spinner
-                android:layout_margin="5dp"
-                android:background="@drawable/edittext_style"
+            <fr.ganfra.materialspinner.MaterialSpinner
                 android:id="@+id/job_location"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:layout_margin="5dp"
-                android:background="@drawable/edittext_style"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:popupBackground="#445260"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#ffff"
+                app:ms_floatingLabelText="Select Location"
+                app:ms_hint="Select your Location"
+                app:ms_hintColor="#ffff"
+                app:ms_multiline="true"></fr.ganfra.materialspinner.MaterialSpinner>
+            <!--445260-->
+            <!--<Spinner-->
+
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="@drawable/edittext_style"-->
+            <!--android:id="@+id/job_category"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="30dp"-->
+            <!--/>-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/job_category"
+                app:ms_arrowColor="#0000ff"
+                android:popupBackground="#445260"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#ffff"
+                app:ms_floatingLabelText="Select Job Category"
+                app:ms_hint="Select Job Category"
+                app:ms_multiline="true"
+                app:ms_hintColor="#ffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
+            <!--<Spinner-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="@drawable/edittext_style"-->
+            <!--android:id="@+id/job_type"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="30dp"-->
+
+            <!--/>-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:id="@+id/job_type"
+                app:ms_arrowColor="#0000ff"
+                android:popupBackground="#445260"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#ffff"
+                app:ms_floatingLabelText="Select Job Type"
+                app:ms_hint="Select Job Type"
+                app:ms_multiline="true"
+                style="@style/EditText.Login"
+                app:ms_hintColor="#ffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:popupBackground="#445260"
+                android:id="@+id/job_education"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#ffff"
+                app:ms_floatingLabelText="Select Job Education"
+                app:ms_hint="Select Job  Education"
+                app:ms_multiline="true"
+                style="@style/EditText.Login"
+                app:ms_hintColor="#ffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/job_ownership"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30dp"
-                />
+                android:popupBackground="#445260"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#ffff"
+                app:ms_floatingLabelText="Select Ownership Type"
+                app:ms_hint="Select Ownership Type"
+                app:ms_multiline="true"
+                style="@style/EditText.Login"
+                app:ms_hintColor="#ffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
             <Button
                 android:background="@drawable/button_style"
                 android:textColor="#ffff"
                 android:textSize="20sp"
                 android:text="Find Now"
-                android:id="@+id/find"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:id="@+id/find_now"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 />
         </LinearLayout>
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

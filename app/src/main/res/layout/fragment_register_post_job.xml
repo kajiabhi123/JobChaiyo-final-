@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_job_chaiyo"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Employer Register"
+            android:textColor="#fff"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#111" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/CName"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Company Name* "
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/CAddress"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Company Address "
+                android:inputType="textPostalAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <!--<Spinner-->
+        <!--android:id="@+id/job_category"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--style="@style/EditText.Login">-->
+
+        <!--</Spinner>-->
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/job_category"
+            style="@style/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#445260"
+            app:ms_arrowColor="#0000ff"
+            app:ms_arrowSize="15dp"
+            app:ms_floatingLabelColor="#a9a9a9"
+            app:ms_floatingLabelText="Select your Ownership Type:"
+            app:ms_hint="Select yout Ownership Type:"
+            app:ms_hintColor="#ffffff"
+            app:ms_multiline="true"></fr.ganfra.materialspinner.MaterialSpinner>
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/job_ownership"
+            style="@style/EditText.Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#445260"
+            app:ms_arrowColor="#0000ff"
+            app:ms_arrowSize="15dp"
+            app:ms_floatingLabelColor="#a9a9a9"
+            app:ms_floatingLabelText="Select your Job Category Type:"
+            app:ms_hint="Select yout Job Category Type:"
+            app:ms_hintColor="#ffffff"
+            app:ms_multiline="true"></fr.ganfra.materialspinner.MaterialSpinner>
+        <!--<Spinner-->
+        <!--android:id="@+id/job_ownership"-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--style="@style/EditText.Login">-->
+
+        <!--</Spinner>-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/Website"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Website"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/ContactPerson"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact Person"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/OfficeContact"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Office Contact"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/Mobile"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/Email"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/ReEmail"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Re-Email"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/OptEmail"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Opt Email "
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff">
+
+            <EditText
+                android:id="@+id/UserName"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User Name "
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/Password"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+
+                android:inputType="textPassword" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#ffffff"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/RePassword"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Re-Password"
+
+                android:inputType="textPassword" />
+
+
+        </android.support.design.widget.TextInputLayout>
+        <!--<ImageView-->
+        <!--android:id="@+id/cimage"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:src="@mipmap/placeholder"-->
+        <!--android:visibility="gone"/>-->
+        <!--<EditText-->
+        <!--android:id="@+id/title"-->
+        <!--style="@style/EditText.Login"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Enter Company's Title"-->
+        <!--android:visibility="gone" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/chooseimg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Choose Compnay Profile Logo"-->
+        <!--style="@style/btn1"-->
+        <!--android:background="@drawable/button_style"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/signin"
+                style="@style/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:text="Sign in" />
+
+            <Button
+                android:id="@+id/cancel"
+                style="@style/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:text="Cancel" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

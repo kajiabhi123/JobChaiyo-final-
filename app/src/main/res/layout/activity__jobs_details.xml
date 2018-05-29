@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent">
 <LinearLayout
     xmlns:http="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,12 +16,14 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Company Name" />
 
         <TextView
             android:id="@+id/company"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"/>
@@ -34,11 +40,13 @@
 
         <TextView
             android:layout_width="wrap_content"
+            style="@style/textview1"
             android:layout_height="wrap_content"
             android:text="Job Title" />
 
         <TextView
             android:id="@+id/job_title"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"/>
@@ -56,11 +64,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/textview1"
             android:text="No of Vacancy" />
 
         <TextView
             android:id="@+id/vacancy"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -77,10 +87,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/textview1"
             android:text="Experience" />
 
         <TextView
             android:id="@+id/experience"
+            style="@style/textview1"
             android:paddingLeft="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -97,12 +109,14 @@
 
         <TextView
             android:layout_width="wrap_content"
+            style="@style/textview1"
             android:layout_height="wrap_content"
             android:text="Education" />
 
         <TextView
             android:id="@+id/education"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -118,12 +132,14 @@
 
         <TextView
             android:layout_width="wrap_content"
+            style="@style/textview1"
             android:layout_height="wrap_content"
             android:text="Location" />
 
         <TextView
             android:id="@+id/location"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -139,12 +155,14 @@
 
         <TextView
             android:layout_width="wrap_content"
+            style="@style/textview1"
             android:layout_height="wrap_content"
             android:text="Type" />
 
         <TextView
             android:id="@+id/job_type"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -161,11 +179,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/textview1"
             android:text="Deadline" />
 
         <TextView
             android:id="@+id/deadline"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -176,19 +196,20 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
+            style="@style/textview1"
             android:layout_height="wrap_content"
             android:text="Job Description" />
 
         <TextView
             android:id="@+id/job_description"
-            android:lines="2"
             android:layout_width="wrap_content"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <View
@@ -199,17 +220,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView2"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Specification" />
 
         <TextView
             android:id="@+id/job_specification"
-            android:lines="2"
             android:paddingLeft="15dp"
+            style="@style/textview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -220,8 +243,11 @@
         />
 
     <Button
+        android:id="@+id/apply_now"
+        style="@style/btn1"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Apply Now"/>
 </LinearLayout>
+</ScrollView>

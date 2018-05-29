@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.designmodal.jobchaiyo.Adapter.RecyclerViewAdapter;
 import com.example.designmodal.jobchaiyo.DataManager.ApiClient;
 import com.example.designmodal.jobchaiyo.DataManager.ApiInterface;
-import com.example.designmodal.jobchaiyo.JobAttributes;
+import com.example.designmodal.jobchaiyo.Model.JobAttributes;
 import com.example.designmodal.jobchaiyo.R;
 
 import java.util.List;
@@ -45,7 +45,6 @@ public class RecycleView_job extends Fragment {
         loading = (TextView) view.findViewById(R.id.loading);
         return view;
 
-
     }
 
     @Override
@@ -53,13 +52,13 @@ public class RecycleView_job extends Fragment {
         super.onActivityCreated(savedInstanceState);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-//        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
-//        {
-//            @Override
-//            public void onRefresh() {
-//                calltry();
-//            }
-//        });
+        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh() {
+                calltry();
+            }
+        });
 
         calltry();
     }
@@ -81,9 +80,8 @@ public class RecycleView_job extends Fragment {
                     RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity(),userList);
                     recyclerView.setAdapter(recyclerViewAdapter);
                     loading.setVisibility(View.GONE);
-
+                    mSwipeLayout.setRefreshing(false);
                 }
-
                 @Override
                 public void onFailure(Call<List<JobAttributes>> call, Throwable t) {
                     loading.setText("Connection failed");

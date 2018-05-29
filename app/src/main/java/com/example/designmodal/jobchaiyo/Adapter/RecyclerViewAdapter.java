@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.designmodal.jobchaiyo.Activities.Activity_Jobs_details;
-import com.example.designmodal.jobchaiyo.JobAttributes;
+import com.example.designmodal.jobchaiyo.Model.JobAttributes;
 import com.example.designmodal.jobchaiyo.R;
 
 import java.util.List;
@@ -23,7 +23,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     private List<JobAttributes> item;
 
 
-    public RecyclerViewAdapter(Context context, List<JobAttributes> list) {
+    public RecyclerViewAdapter(Context context, List<JobAttributes> list)
+    {
         this.context = context;
         this.item = list;
     }
@@ -50,6 +51,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         final String company_name= item.get(position).getCompany_name();
         int vacancy = item.get(position).getVacancy_no();
         final String vacancy_seat = String.valueOf(vacancy);
+        final String job_id = item.get(position).getJob_id();
+
 
 
             holder.company_name.setText(company_name);
@@ -71,6 +74,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
                 intent.putExtra("job_Description",job_description);
                 intent.putExtra("job_specification",job_specification);
                 intent.putExtra("company_name",company_name);
+                intent.putExtra("job_id",job_id);
                 context.startActivity(intent);
             }
         });
@@ -79,7 +83,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return item.size();
     }
 }

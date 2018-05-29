@@ -1,4 +1,4 @@
-package com.example.designmodal.jobchaiyo;
+package com.example.designmodal.jobchaiyo.Model;
 
 /**
  * Created by compware on 5/15/2018.
@@ -16,8 +16,9 @@ public class JobAttributes
     private String job_type;
     private String company_name;
     private String education_name;
+    private String job_id;
 
-    public JobAttributes(String employer,String education,String job_type,String job_title, int vacancy_no, String experience, String deadline, String job_description, String job_specification, String area_name) {
+    public JobAttributes(String job_id,String employer,String education,String job_type,String job_title, int vacancy_no, String experience, String deadline, String job_description, String job_specification, String area_name) {
         this.job_title = job_title;
         this.vacancy_no = vacancy_no;
         this.experience = experience;
@@ -28,6 +29,7 @@ public class JobAttributes
         this.job_type = job_type;
         this.company_name = employer;
         this.education_name= education;
+        this.job_id= job_id;
     }
 
     public String getJob_title() {
@@ -106,7 +108,16 @@ public class JobAttributes
         return education_name;
     }
 
-    public void setEducation_name(String education) {
+    public void setEducation_name(String education)
+    {
         this.education_name = education;
+    }
+
+    public String getJob_id() {
+        return job_id;
+    }
+
+    public void setJob_id(String job_id) {
+        this.job_id = job_id;
     }
 }

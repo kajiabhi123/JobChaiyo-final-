@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?><!--<?xml version="1.0" encoding="utf-8"?>-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg_job_chaiyo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff">
+
+                <EditText
+                    android:id="@+id/jobtitle"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Job Title "
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff">
+                <EditText
+                    android:id="@+id/vacancy"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Number of Vacancy "
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/education"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#a9a9a9"
+                android:popupBackground="#445260"
+                app:ms_floatingLabelText="Select Required Education for Job"
+                app:ms_hint="Select Required Education for Job"
+                app:ms_hintColor="#ffffff"
+                app:ms_multiline="true"></fr.ganfra.materialspinner.MaterialSpinner>
+
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/city"
+                style="@style/EditText.Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#a9a9a9"
+                android:popupBackground="#445260"
+                app:ms_floatingLabelText="Select city for required job"
+                app:ms_hint="Select city for required job"
+                app:ms_hintColor="#ffffff"
+                app:ms_multiline="true"></fr.ganfra.materialspinner.MaterialSpinner>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff">
+                <EditText
+                    android:id="@+id/areaName"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Area Name"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff">
+                <EditText
+                    android:id="@+id/experience"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Experience (in year)"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/jobType"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#a9a9a9"
+                android:popupBackground="#445260"
+                app:ms_floatingLabelText="Select Job Type"
+                app:ms_hint="Select Job Type"
+                app:ms_multiline="true"
+                style="@style/EditText.Login"
+                app:ms_hintColor="#ffffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment"
+                app:ms_arrowColor="#0000ff"
+                app:ms_arrowSize="15dp"
+                app:ms_floatingLabelColor="#a9a9a9"
+                android:popupBackground="#445260"
+                app:ms_floatingLabelText="Select Payment Method"
+                app:ms_hint="Select Payment Method"
+                app:ms_multiline="true"
+                style="@style/EditText.Login"
+                app:ms_hintColor="#ffffff">
+            </fr.ganfra.materialspinner.MaterialSpinner>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff"
+                app:counterMaxLength="21">
+                <EditText
+                    android:id="@+id/jobDescription"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Job Description"
+                    android:inputType="textEmailAddress"
+                    android:lines="4"
+                    android:maxLines="4" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#ffffff">
+                <EditText
+                    android:id="@+id/jobSpec"
+                    style="@style/edittext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Job Specification "
+                    android:inputType="text"
+                    android:lines="4"
+                    android:maxLines="4" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/postbtn"
+                style="@style/btn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_style"
+                android:text="Post job" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
