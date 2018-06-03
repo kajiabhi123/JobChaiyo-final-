@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Contact_Us extends FragmentActivity implements OnMapReadyCallback {
+public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Button submit;
@@ -52,6 +52,8 @@ public class Contact_Us extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         mapFragment.getView().setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -221,5 +223,17 @@ public class Contact_Us extends FragmentActivity implements OnMapReadyCallback {
             return;
         }
         mMap.setMyLocationEnabled(true);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id==android.R.id.home)
+        {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

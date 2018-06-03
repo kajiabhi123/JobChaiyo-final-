@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.DataManager.ApiClient;
 import com.example.designmodal.jobchaiyo.DataManager.ApiInterface;
@@ -42,6 +43,7 @@ public class tab_post_job_frag extends Fragment implements Service.GetJobCallbac
     MaterialSpinner city, education, jobType, payment;
     Button postbtn;
     Integer educationid, cityid, jobTypeid, paymentid;
+    private String jtitle,jvacancy,jareaName,jexperience;
     //  Service service;
     //Context context;
     private ApiInterface apiInterface;
@@ -77,17 +79,79 @@ public class tab_post_job_frag extends Fragment implements Service.GetJobCallbac
         service.getJobLocationList(this);
         service.getPaymentList(this);
 
-
         postbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                postReq();
+
+                register();
             }
         });
 
 
         return view;
     }
+
+    public void register() {
+        intialize();// intializing the input to string variables
+        if (!validate()) {
+            Toast.makeText(getContext(), "Job Posted Failed .Please fill form with valid data", Toast.LENGTH_SHORT).show();
+        } else {
+            onPostJobSuccess();
+        }
+
+
+    }
+
+    public void onPostJobSuccess() {
+        postReq();
+    }
+
+    public boolean validate() {
+        boolean valid = true;
+        if (jtitle.isEmpty() || jtitle.length() > 32) {
+            jobtitle.setError("Please Enter Valid Job Title");
+            valid = false;
+        }
+        if (jvacancy.isEmpty() || jvacancy.length() > 1000) {
+            vacancy.setError("Number of Vacancy should not be Empty");
+            valid = false;
+        }
+
+        if (jareaName.isEmpty() || jareaName.length() > 43) {
+            areaName.setError("Please Enter Valid Area Name");
+            valid = false;
+        }
+        if (jexperience.isEmpty()) {
+            experience.setError("Please Enter Required Experience or enter 0 for Fresher");
+            valid = false;
+        }
+
+        if (educationid == 0) {
+            education.setError("Please Select Required Education.....");
+            valid = false;
+        }
+        if (cityid == 0) {
+            city.setError("Please Select City...");
+            valid = false;
+        }
+        if (jobTypeid == 0) {
+            jobType.setError("Please Select Required Job Type...");
+            valid = false;
+        }
+        if (paymentid == 0) {
+            payment.setError("Please Select Payment Method...");
+            valid = false;
+        }
+        return valid;
+    }
+
+    public void intialize() {
+        jtitle = jobtitle.getText().toString().trim();
+        jvacancy = vacancy.getText().toString().trim();
+        jareaName = areaName.getText().toString().trim();
+        jexperience = experience.getText().toString().trim();
+    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

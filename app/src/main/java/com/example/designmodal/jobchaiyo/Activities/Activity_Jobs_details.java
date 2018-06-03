@@ -2,6 +2,7 @@ package com.example.designmodal.jobchaiyo.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ public class Activity_Jobs_details extends CommonMenuActivity
         education_required = (TextView) findViewById(R.id.education);
         company_name = (TextView) findViewById(R.id.company);
         apply_now = (Button) findViewById(R.id.apply_now);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if(bd != null)
@@ -74,5 +76,18 @@ public class Activity_Jobs_details extends CommonMenuActivity
             }
         });
     }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id==android.R.id.home)
+        {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

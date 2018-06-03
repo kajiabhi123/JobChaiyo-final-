@@ -1,10 +1,10 @@
 package com.example.designmodal.jobchaiyo.Fragments;
-
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,17 +78,12 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
         et_UserName = view.findViewById(R.id.UserName);
         et_Password = view.findViewById(R.id.Password);
         et_RePassword = view.findViewById(R.id.RePassword);
-//        imageView = view.findViewById(R.id.image);
         signin = view.findViewById(R.id.signin);
         cancel = view.findViewById(R.id.cancel);
         title = view.findViewById(R.id.title);
 
         prefConfig = new PrefConfig(container.getContext());
         jobCategorySpinner = (MaterialSpinner) view.findViewById(R.id.job_category);
-//        choosebtn = view.findViewById(R.id.chooseimg);
-//        img = view.findViewById(R.id.cimage);
-
-        //jobCategorySpinner = view.findViewById(R.id.job_category);
         jobOwnershipSpinner = (MaterialSpinner) view.findViewById(R.id.job_ownership);
         apiInterface = ApiClient.getRetrofit().create(ApiInterface.class);
         service = new Service();
@@ -99,29 +94,103 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().add(R.id.container, new LoginPostJob()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new LoginPostJob()).commit();
             }
         });
-
-        // jobCategorySpinner.setPrompt("Job Category");
 
         jobCategory = 0;
         jobOwnership = 0;
 
-//        choosebtn.setOnClickListener(this);
         context = getContext();
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                performRegisteration();
+                register();
 
             }
         });
         return view;
     }
 
+    public void register() {
+        intialize();// intializing the input to string variables
+        if (!validate()) {
+            Toast.makeText(context, "Signup has Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            onSignupSuccess();
+        }
+    }
+
+    public void onSignupSuccess() {
+        performRegisteration();
+    }
+
+    public boolean validate() {
+        boolean valid = true;
+        if (CName.isEmpty() || CName.length() > 32) {
+            et_CName.setError("Please Enter Valid Company Name");
+            valid = false;
+        }
+        if (CAddress.isEmpty() || CAddress.length() > 32) {
+            et_CAddress.setError("Please Enter Valid Company Address");
+            valid = false;
+        }
+        if (Mobile.isEmpty() || Mobile.length() > 10) {
+            et_Mobile.setError("Please Enter Valid Mobile Number");
+            valid = false;
+        }
+        if (Email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+            et_Email.setError("Please Enter Valid Email Address");
+            valid = false;
+        }
+        if (!ReEmail.equals(Email)) {
+            et_ReEmail.setError("Email not match. Please Reenter");
+            valid = false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(OptEmail).matches()) {
+            et_OptEmail.setError("Please Enter Valid Email Address");
+            valid = false;
+        }
+        if (UserName.isEmpty() || UserName.length() > 32) {
+            et_UserName.setError("Please Enter Valid Username");
+            valid = false;
+        }
+        if (Password.isEmpty() || Password.length() > 32) {
+            et_Password.setError("Please Enter Valid Password");
+            valid = false;
+        }
+        if (!RePassword.equals(Password)) {
+            et_RePassword.setError("Password not match. Please Reenter your Password");
+            valid = false;
+        }
+        if (jobCategory == 0) {
+            jobCategorySpinner.setError("Please Select your Ownership.....");
+            valid = false;
+        }
+        if (jobOwnership == 0) {
+            jobOwnershipSpinner.setError("Please Select your Job Category");
+            valid = false;
+        }
+        return valid;
+    }
+
+    public void intialize() {
+        CName = et_CName.getText().toString().trim();
+        CAddress = et_CAddress.getText().toString().trim();
+        Website = et_Website.getText().toString().trim();
+        ContactPerson = et_ContactPerson.getText().toString().trim();
+        OfficeContact = et_OfficeContact.getText().toString().trim();
+        Mobile = et_Mobile.getText().toString().trim();
+        Email = et_Email.getText().toString().trim();
+        ReEmail = et_ReEmail.getText().toString().trim();
+        OptEmail = et_OptEmail.getText().toString().trim();
+        UserName = et_UserName.getText().toString().trim();
+        Password = et_Password.getText().toString().trim();
+        RePassword = et_RePassword.getText().toString().trim();
+
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

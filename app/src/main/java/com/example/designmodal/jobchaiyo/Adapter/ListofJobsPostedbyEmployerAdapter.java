@@ -49,10 +49,11 @@ public class ListofJobsPostedbyEmployerAdapter extends RecyclerView.Adapter<Recy
         final String education_name =list.get(position).getEducation_name();
         final String city_name =list.get(position).getCity_name();
         final String job_type =list.get(position).getJob_type();
+        final String company_name = list.get(position).getCompany_name();
 
 
 
-        holder.company_name.setText(job_type);
+        holder.company_name.setText(company_name);
         holder.job_title.setText(job_title);
         holder.deadline.setText(deadline);
         //setting click listener
@@ -70,12 +71,10 @@ public class ListofJobsPostedbyEmployerAdapter extends RecyclerView.Adapter<Recy
                 intent.putExtra("deadline", deadline);
                 intent.putExtra("job_Description", job_description);
                 intent.putExtra("job_specification", job_specification);
-                //intent.putExtra("company_name", company_name);
+                intent.putExtra("company_name", company_name);
                 context.startActivity(intent);
             }
         });
-
-
     }
 
     @Override

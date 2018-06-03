@@ -8,9 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -21,7 +19,7 @@ import com.example.designmodal.jobchaiyo.Fragments.ServiceFragment;
 import com.example.designmodal.jobchaiyo.R;
 import com.example.designmodal.jobchaiyo.SharedPreferences.PrefConfig;
 
-public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,LoginPostJob.OnLoginFormActivityListener {
+public class NavigationDrawerActivity extends CommonMenuActivity implements NavigationView.OnNavigationItemSelectedListener,LoginPostJob.OnLoginFormActivityListener {
 
     private long backPressedTime ;
     private Toast backToast;
@@ -49,7 +47,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             }
             else
             {
-                getFragmentManager().beginTransaction().add(R.id.container,new LoginPostJob()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.container,new LoginPostJob()).commit();
 
                 //display login page
             }
@@ -87,27 +85,27 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 //        }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     public void openFragment(Fragment f, String s){
         getSupportFragmentManager().beginTransaction().replace(R.id.container,f).commit();
@@ -123,28 +121,37 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            openFragment(new RecycleView_job(),"Jobs");
+           // openFragment(new RecycleView_job(),"Jobs");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new RecycleView_job()).commit();
+
             // Handle the camera action
-        } else if (id == R.id.nav_jobs) {
+        } else if (id == R.id.nav_jobs)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new RecycleView_job()).commit();
 
         } else if (id == R.id.nav_post_jobs)
         {
-            getFragmentManager().beginTransaction().replace(R.id.container,new LoginPostJob()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,new LoginPostJob()).commit();
 
         }
         else if (id == R.id.nav_services)
         {
            // getSupportFragmentManager().beginTransaction().replace(R.id.container,new ServiceFragment()).commit();
-        openFragment(new ServiceFragment(), "Service");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ServiceFragment()).commit();
 
 
         }
         else if (id == R.id.nav_search)
         {
-            openFragment(new Fragment_SearchJob(),"search_job");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Fragment_SearchJob()).commit();
         }
         else if (id == R.id.nav_share) {
-
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Hey check out my app at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
         }
         else if (id == R.id.nav_contact)
         {
@@ -159,7 +166,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
     @Override
     public void performRegister()
     {
-        getFragmentManager().beginTransaction().replace(R.id.container,new RegisterPostJob())
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new RegisterPostJob())
                 .addToBackStack(null).commit();
     }
 

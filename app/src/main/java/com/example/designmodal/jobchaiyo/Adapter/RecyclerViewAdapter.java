@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.designmodal.jobchaiyo.Activities.Activity_Jobs_details;
+import com.example.designmodal.jobchaiyo.AnimationUtil;
 import com.example.designmodal.jobchaiyo.Model.JobAttributes;
 import com.example.designmodal.jobchaiyo.R;
 
@@ -21,6 +22,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     private Context context;
     private List<JobAttributes> item;
+    int previousPosition=0;
 
 
     public RecyclerViewAdapter(Context context, List<JobAttributes> list)
@@ -58,6 +60,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
             holder.company_name.setText(company_name);
             holder.job_title.setText(job_title);
             holder.deadline.setText(deadline);
+
+        if(position>previousPosition){
+            AnimationUtil.animate(holder,true);
+        }
+        else
+            AnimationUtil.animate(holder,false);
+
+
         //setting click listener
             holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

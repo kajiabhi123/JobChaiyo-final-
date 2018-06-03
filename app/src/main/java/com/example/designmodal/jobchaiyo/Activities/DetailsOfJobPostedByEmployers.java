@@ -2,12 +2,12 @@ package com.example.designmodal.jobchaiyo.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.designmodal.jobchaiyo.R;
 
-public class DetailsOfJobPostedByEmployers extends AppCompatActivity
+public class DetailsOfJobPostedByEmployers extends CommonMenuActivity
 {
     TextView company_name, title, vacancy, experience_required, education_required, location, type_job, vacancy_deadline,
             specification_job, description_job;
@@ -27,7 +27,6 @@ public class DetailsOfJobPostedByEmployers extends AppCompatActivity
         education_required = (TextView) findViewById(R.id.education);
         company_name = (TextView) findViewById(R.id.company);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if (bd != null) {
@@ -40,7 +39,7 @@ public class DetailsOfJobPostedByEmployers extends AppCompatActivity
             String job_specification = (String) bd.get("job_specification");
             String deadline = (String) bd.get("deadline");
             String job_Description = (String) bd.get("job_Description");
-            // String companyName = (String) bd.get("company_name");
+            String companyName = (String) bd.get("company_name");
 
             //setting the job description value
             title.setText(job_title);
@@ -52,8 +51,19 @@ public class DetailsOfJobPostedByEmployers extends AppCompatActivity
             education_required.setText(education);
             description_job.setText(job_Description);
             specification_job.setText(job_specification);
-            //company_name.setText(companyName);
+            company_name.setText(companyName);
 
         }
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id==android.R.id.home)
+        {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -16,10 +16,11 @@ public class ListofJobsPostedbyEmployer
     private String education_name;
     private String city_name;
     private String job_type;
+    private String company_name;
 
 
 
-    public ListofJobsPostedbyEmployer(String employer_id, String job_title, String experience, String vacancy_no, String deadline, String job_description, String job_specification, String education_name, String city_name, String job_type) {
+    public ListofJobsPostedbyEmployer(String company_name,String employer_id, String job_title, String experience, String vacancy_no, String deadline, String job_description, String job_specification, String education_name, String city_name, String job_type) {
         this.employer_id = employer_id;
         this.job_title = job_title;
         this.experience = experience;
@@ -30,7 +31,17 @@ public class ListofJobsPostedbyEmployer
         this.education_name = education_name;
         this.city_name = city_name;
         this.job_type = job_type;
+        this.company_name = company_name;
     }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
+
     public String getEmployer_id() {
         return employer_id;
     }

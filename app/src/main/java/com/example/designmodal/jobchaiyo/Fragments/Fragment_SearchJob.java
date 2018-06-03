@@ -127,7 +127,7 @@ public class Fragment_SearchJob extends Fragment implements Service.GetJobCallba
     @Override
     public void onSuccesslistJobLocation(List<ListofJobLocation> listofJobLocations) {
         jobLocationSpinner.setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, listofJobLocations));
+                R.layout.spinner_layout,R.id.textView,listofJobLocations));
     }
     @Override
     public void onSuccesslistPayment(List<ListofPayment> listofPayment)
@@ -142,26 +142,26 @@ public class Fragment_SearchJob extends Fragment implements Service.GetJobCallba
     @Override
     public void onSuccesslistJobtypes(List<ListofJobTypes> listofJobTypes) {
         jobTypeSpinner.setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, listofJobTypes));
+                R.layout.spinner_layout,R.id.textView, listofJobTypes));
     }
 
     @Override
     public void onSuccesslistEducation(List<ListofJobEducation> listofJobEducations) {
         jobEducationSpinner.setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, listofJobEducations));
+                R.layout.spinner_layout,R.id.textView, listofJobEducations));
     }
 
     @Override
     public void onSuccessJobOwnership(List<ListofJobOwnership> listofJobOwnerhips) {
         jobOwnershipSpinner.setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, listofJobOwnerhips));
+                R.layout.spinner_layout,R.id.textView, listofJobOwnerhips));
     }
 
     @Override
     public void onSuccessJobCategory(List<ListofJobCategory> listofJobCategory)
     {
         jobCategorySpinner.setAdapter(new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, listofJobCategory));
+                R.layout.spinner_layout,R.id.textView, listofJobCategory));
     }
 
 }

@@ -2,30 +2,58 @@
 <LinearLayout
     android:padding="20dp"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#ffffff">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:drawablePadding="5dp"
         android:hint="Full Name"
+        style="@style/edittext1"
         android:id="@+id/full_name"/>
+    </android.support.design.widget.TextInputLayout>
 
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#ffffff">
     <EditText
         android:id="@+id/email_apply"
         android:inputType="textEmailAddress"
+        android:drawablePadding="5dp"
+
+        android:layout_width="match_parent"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
+        style="@style/edittext1"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:hint="Email" />
+        android:textColorHint="#ffffff">
 
     <EditText
         android:layout_width="match_parent"
+        android:drawablePadding="5dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_phone_black_24dp"
         android:inputType="number"
+        style="@style/edittext1"
         android:hint="Contact Number"
         android:id="@+id/contact_no"/>
+    </android.support.design.widget.TextInputLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

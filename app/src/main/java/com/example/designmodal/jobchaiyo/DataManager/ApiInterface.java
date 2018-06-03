@@ -1,6 +1,5 @@
 package com.example.designmodal.jobchaiyo.DataManager;
 
-import com.example.designmodal.jobchaiyo.Model.ApplyNowModel;
 import com.example.designmodal.jobchaiyo.Model.JobAttributes;
 import com.example.designmodal.jobchaiyo.Model.ListofJobCategory;
 import com.example.designmodal.jobchaiyo.Model.ListofJobEducation;
@@ -31,12 +30,11 @@ public interface ApiInterface
     Call<List<JobAttributes>> getJobInfo();
 
 
-    @POST("ApplyNow.php")
-    @FormUrlEncoded
-    Call<ApplyNowModel> PerformApplyNow(@Field("job_id") String job_id, @Field("Email") String AppliedEmail,@Field("Name")
-            String AppliedName,@Field("phone") String AppliedPhone,
-                                        @Field("uploaded_file") String AppliedCv,
-                                        @Field("AppliedDateTime") String AppliedDateTime);
+//    @POST("ApplyNow.php")
+//    @FormUrlEncoded
+//    Call<ApplyNowModel> PerformApplyNow(@Field("job_id") String job_id, @Field("email") String AppliedEmail, @Field("full_name")
+//            String AppliedName, @Field("contact") String AppliedPhone,
+//                                        @Part("uploaded_file") RequestBody file, @Field("AppliedDateTime") String AppliedDateTime);
 
 
     //prem's portion

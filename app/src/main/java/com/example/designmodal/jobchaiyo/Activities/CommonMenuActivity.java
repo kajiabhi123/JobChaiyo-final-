@@ -18,7 +18,8 @@ public class CommonMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_common_menu);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -39,10 +40,10 @@ public class CommonMenuActivity extends AppCompatActivity {
         }
         if(id==R.id.disclaimer)
             showDisclaimer();
-        if(id==android.R.id.home)
-        {
-            finish();
-        }
+//        if(id==android.R.id.home)
+//        {
+//            finish();
+//        }
 
         if(id==R.id.rate_us)
             rateMyApp();
