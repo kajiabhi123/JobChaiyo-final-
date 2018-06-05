@@ -36,6 +36,7 @@ public class SearchJobActivity extends CommonMenuActivity {
         setContentView(R.layout.activity_search_job);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Searched Jobs");
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -69,7 +70,6 @@ public class SearchJobActivity extends CommonMenuActivity {
             @Override
             public void onResponse(Call<List<SearchedJobs>> call, Response<List<SearchedJobs>> response) {
                 List<SearchedJobs> searchedList = response.body();
-                Toast.makeText(SearchJobActivity.this, "onResponse: " + searchedList.size(), Toast.LENGTH_LONG).show();
                 SearchedJobsAdapter searchedJobsAdapter = new SearchedJobsAdapter(SearchJobActivity.this, searchedList);
                 recyclerView.setAdapter(searchedJobsAdapter);
                 mSwipeLayout.setRefreshing(false);
@@ -78,7 +78,7 @@ public class SearchJobActivity extends CommonMenuActivity {
 
             @Override
             public void onFailure(Call<List<SearchedJobs>> call, Throwable t) {
-                Toast.makeText(SearchJobActivity.this, "Connection Timed Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchJobActivity.this, "No Jobs Found", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

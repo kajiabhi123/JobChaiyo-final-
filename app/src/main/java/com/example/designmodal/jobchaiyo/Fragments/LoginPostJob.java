@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.Activities.Company_tab;
 import com.example.designmodal.jobchaiyo.DataManager.ApiClient;
@@ -54,7 +55,6 @@ public class LoginPostJob extends Fragment {
         Password=view.findViewById(R.id.Password);
         Login=view.findViewById(R.id.Login);
         prefConfig = new PrefConfig(container.getContext());
-
 
         apiInterface=  ApiClient.getRetrofit().create(ApiInterface.class);
 
@@ -136,8 +136,9 @@ public class LoginPostJob extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
+            public void onFailure(Call<User> call, Throwable t)
+            {
+                Toast.makeText(getContext(), "Sorry No Internet Connection", Toast.LENGTH_SHORT).show();
             }
         });
         Email.setText("");

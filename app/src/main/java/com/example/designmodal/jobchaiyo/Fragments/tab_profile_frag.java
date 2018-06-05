@@ -32,9 +32,6 @@ public class tab_profile_frag extends Fragment {
         public void logoutperform();
     }
 
-    //public WelcomePostJob() {
-    // Required empty public constructor
-    //}
 
 
     @Override
@@ -43,9 +40,6 @@ public class tab_profile_frag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_profile, container, false);
         prefConfig = new PrefConfig(getContext());
-
-        //    textView=view.findViewById(R.id.name);
-        //  textView.setText("Welcome "+ MainActivity.prefConfig.readName());
         logout = view.findViewById(R.id.logout);
 
 
@@ -70,7 +64,6 @@ public class tab_profile_frag extends Fragment {
         optEmail.setText(prefConfig.readOptEmail());
         username.setText(prefConfig.readUsername());
         password.setText(prefConfig.readPassword());
-//        Toast.makeText(getContext(), "id" + MainActivity.prefConfig.readid(), Toast.LENGTH_SHORT).show();
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

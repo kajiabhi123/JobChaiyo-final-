@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.Adapter.ListofJobsPostedbyEmployerAdapter;
@@ -36,6 +37,7 @@ public class tab_jobs_posted_frag extends Fragment
     LinearLayoutManager linearLayoutManager;
     ApiInterface apiInterface;
     private SwipeRefreshLayout mSwipeLayout;
+    TextView SetMsg;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class tab_jobs_posted_frag extends Fragment
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         mSwipeLayout = view.findViewById(R.id.swipeRefreshLayout);
+        SetMsg = view.findViewById(R.id.loading);
         id = prefConfig.readid();
         mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
         {
@@ -75,7 +78,8 @@ public class tab_jobs_posted_frag extends Fragment
             }
             @Override
             public void onFailure(Call<List<ListofJobsPostedbyEmployer>>  call, Throwable t) {
-                Toast.makeText(getActivity(), "Connection Timed Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "No Jobs Posted", Toast.LENGTH_SHORT).show();
+                SetMsg.setText("No Jobs Posted");
                 t.printStackTrace();
             }
         });

@@ -63,7 +63,6 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
             }
         });
         apiInterface = ApiClient.getRetrofit().create(ApiInterface.class);
-//        apiInterface = ApiUtigetApiClient();
 
         //form validation below find view by id
         submit=findViewById(R.id.submit);
@@ -78,11 +77,6 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
             public void onClick(View arg0) {
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
                 callIntent.setData(Uri.parse("tel:+977 014256677"));
-
-//                if (ActivityCompat.checkSelfPermission(MapsActivity.this,
-//                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                    return;
-//                }
                 startActivity(callIntent);
             }
         });
@@ -90,7 +84,6 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
         t_v_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("milto:"));
                 emailIntent.setType("message/rfc822");
@@ -114,10 +107,10 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
         intialize();
         if (!validate()){
 
-            Toast.makeText(this,"Failded to submit data",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sorry...Failed to submit suggestion",Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "your quaries are submited",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Thank you for Your suggestions",Toast.LENGTH_SHORT).show();
             insertDetail();
             cleareData();
         }
@@ -133,7 +126,7 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
     public boolean validate() {
         boolean valid = true;
         if (c_uname.isEmpty()) {
-            uname.setError("Please Enter Valid Company Name");
+            uname.setError("Please Fill the Name");
             valid = false;
         }
         if (c_email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(c_email).matches()) {
@@ -188,16 +181,6 @@ public class Contact_Us extends CommonMenuActivity implements OnMapReadyCallback
         });
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;

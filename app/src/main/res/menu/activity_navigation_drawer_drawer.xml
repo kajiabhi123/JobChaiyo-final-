@@ -10,20 +10,25 @@
             android:title="Home" />
         <item
             android:id="@+id/nav_jobs"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/jobs"
             android:title="Jobs" />
         <item
             android:id="@+id/nav_post_jobs"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@mipmap/post_jobs"
             android:title="Post Jobs" />
         <item
             android:id="@+id/nav_services"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Services" />
         <item
             android:id="@+id/nav_search"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_search_black_24dp"
             android:title="Search Jobs" />
+
+        <item
+            android:id="@+id/nav_internship"
+            android:icon="@mipmap/icon_internship"
+            android:title="Internship" />
     </group>
 
     <item android:title="Communicate">
@@ -34,7 +39,7 @@
                 android:title="Share" />
             <item
                 android:id="@+id/nav_contact"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_phone_black_24dp"
                 android:title="Contact Us" />
         </menu>
     </item>

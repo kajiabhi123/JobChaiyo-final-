@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.R;
 
@@ -37,6 +36,7 @@ public class Activity_Jobs_details extends CommonMenuActivity
         company_name = (TextView) findViewById(R.id.company);
         apply_now = (Button) findViewById(R.id.apply_now);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Jobs Details");
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if(bd != null)
@@ -56,7 +56,7 @@ public class Activity_Jobs_details extends CommonMenuActivity
             //setting the job description value
             title.setText(job_title);
             vacancy.setText(vacancy_no);
-            experience_required.setText(experience);
+            experience_required.setText(experience +" Years");
             vacancy_deadline.setText(deadline);
             location.setText(job_location);
             type_job.setText(job_type);
@@ -71,7 +71,6 @@ public class Activity_Jobs_details extends CommonMenuActivity
             {
                 Intent intent = new Intent(Activity_Jobs_details.this,Apply_Now.class);
                 intent.putExtra("job_id",job_id);
-                Toast.makeText(Activity_Jobs_details.this, job_id, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });

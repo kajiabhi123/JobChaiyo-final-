@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:popupBackground="#445260"
-            app:ms_arrowColor="#0000ff"
+            app:ms_arrowColor="#ffff"
             app:ms_arrowSize="15dp"
             app:ms_floatingLabelColor="#a9a9a9"
             app:ms_floatingLabelText="Select your Ownership Type:"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:popupBackground="#445260"
-            app:ms_arrowColor="#0000ff"
+            app:ms_arrowColor="#ffff"
             app:ms_arrowSize="15dp"
             app:ms_floatingLabelColor="#a9a9a9"
             app:ms_floatingLabelText="Select your Job Category Type:"
@@ -249,27 +249,6 @@
 
 
         </android.support.design.widget.TextInputLayout>
-        <!--<ImageView-->
-        <!--android:id="@+id/cimage"-->
-        <!--android:layout_width="150dp"-->
-        <!--android:layout_height="150dp"-->
-        <!--android:src="@mipmap/placeholder"-->
-        <!--android:visibility="gone"/>-->
-        <!--<EditText-->
-        <!--android:id="@+id/title"-->
-        <!--style="@style/EditText.Login"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="Enter Company's Title"-->
-        <!--android:visibility="gone" />-->
-
-        <!--<Button-->
-        <!--android:id="@+id/chooseimg"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Choose Compnay Profile Logo"-->
-        <!--style="@style/btn1"-->
-        <!--android:background="@drawable/button_style"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"

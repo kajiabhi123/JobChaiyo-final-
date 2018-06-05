@@ -1,17 +1,21 @@
 package com.example.designmodal.jobchaiyo.Activities;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.designmodal.jobchaiyo.Fragments.Fragment_Internship;
 import com.example.designmodal.jobchaiyo.Fragments.Fragment_SearchJob;
 import com.example.designmodal.jobchaiyo.Fragments.LoginPostJob;
 import com.example.designmodal.jobchaiyo.Fragments.RegisterPostJob;
@@ -24,6 +28,7 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
     private long backPressedTime ;
     private Toast backToast;
     PrefConfig prefConfig;
+    TextView ErrorLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,28 +36,25 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         prefConfig = new PrefConfig(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
-        if (findViewById(R.id.container)!=null)
-        {
-            if (savedInstanceState!=null)
-            {
+        ErrorLoading = findViewById(R.id.CheckInternetMsg);
+        if (findViewById(R.id.container) != null) {
+            if (savedInstanceState != null) {
                 return;
             }
 
-            if (prefConfig.readLoginStatus())
-            {
-                Intent intent=new Intent(NavigationDrawerActivity.this,Company_tab.class);
+            if (prefConfig.readLoginStatus()) {
+                Intent intent = new Intent(NavigationDrawerActivity.this, Company_tab.class);
                 startActivity(intent);
                 finish();
-            }
-            else
-            {
-                getSupportFragmentManager().beginTransaction().add(R.id.container,new LoginPostJob()).commit();
+            } else {
+                getSupportFragmentManager().beginTransaction().add(R.id.main_container, new LoginPostJob()).commit();
 
                 //display login page
             }
         }
 
+        // Checking Internet Connection
+           checkConnection();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -62,9 +64,8 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        openFragment(new RecycleView_job(), "Home");
-        PrefConfig prefConfig=new PrefConfig(this);    }
-
+        // openFragment(new RecycleView_job(), "Home");
+    }
     @Override
     public void onBackPressed() {
         if(backPressedTime+2000 > System.currentTimeMillis()){
@@ -77,40 +78,6 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
             backToast.show();
         }
         backPressedTime  = System.currentTimeMillis();
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    public void openFragment(Fragment f, String s){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,f).commit();
-        setTitle(s);
-
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -122,39 +89,57 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
 
         if (id == R.id.nav_home) {
            // openFragment(new RecycleView_job(),"Jobs");
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new RecycleView_job()).commit();
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new RecycleView_job()).commit();
+            this.getSupportActionBar().setTitle("Home");
             // Handle the camera action
         } else if (id == R.id.nav_jobs)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new RecycleView_job()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new RecycleView_job()).commit();
+            this.getSupportActionBar().setTitle("Jobs");
 
         } else if (id == R.id.nav_post_jobs)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container,new LoginPostJob()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new LoginPostJob()).commit();
+            this.getSupportActionBar().setTitle("Post Job");
+
 
         }
         else if (id == R.id.nav_services)
         {
-           // getSupportFragmentManager().beginTransaction().replace(R.id.container,new ServiceFragment()).commit();
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ServiceFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new ServiceFragment()).commit();
+            this.getSupportActionBar().setTitle("Services");
 
+
+
+        }
+        else if (id == R.id.nav_internship)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Fragment_Internship()).commit();
+            this.getSupportActionBar().setTitle("Internship");
 
         }
         else if (id == R.id.nav_search)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Fragment_SearchJob()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Fragment_SearchJob()).commit();
+            this.getSupportActionBar().setTitle("Search Jobs");
+
         }
         else if (id == R.id.nav_share) {
+            this.getSupportActionBar().setTitle("Share Us");
+
             Intent sendIntent = new Intent();
+
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT,
                     "Hey check out my app at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
+
         }
         else if (id == R.id.nav_contact)
         {
+            this.getSupportActionBar().setTitle("Contact Us");
+
             Intent intent = new Intent(NavigationDrawerActivity.this,Contact_Us.class);
             startActivity(intent);
         }
@@ -166,7 +151,7 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
     @Override
     public void performRegister()
     {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new RegisterPostJob())
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new RegisterPostJob())
                 .addToBackStack(null).commit();
     }
 
@@ -181,6 +166,37 @@ public class NavigationDrawerActivity extends CommonMenuActivity implements Navi
         Intent intent=new Intent(NavigationDrawerActivity.this,TabActivity.class);
         startActivity(intent);
         finish();
+    }
+
+
+    protected boolean isOnline() {
+
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+
+    public void checkConnection(){
+
+        if(isOnline()){
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new RecycleView_job()).commit();
+
+        }else{
+
+            ErrorLoading.setText("Whoops!! No Internet Connection Found.");
+        }
+
     }
 }
 //cmt given

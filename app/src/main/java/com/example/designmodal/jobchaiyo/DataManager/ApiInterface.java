@@ -29,12 +29,10 @@ public interface ApiInterface
     @GET("postJobs.php")
     Call<List<JobAttributes>> getJobInfo();
 
+    @POST("intern.php")
+    @FormUrlEncoded
+    public  Call<List<JobAttributes>> sendInternShip(@Field("jobType") String Type);
 
-//    @POST("ApplyNow.php")
-//    @FormUrlEncoded
-//    Call<ApplyNowModel> PerformApplyNow(@Field("job_id") String job_id, @Field("email") String AppliedEmail, @Field("full_name")
-//            String AppliedName, @Field("contact") String AppliedPhone,
-//                                        @Part("uploaded_file") RequestBody file, @Field("AppliedDateTime") String AppliedDateTime);
 
 
     //prem's portion

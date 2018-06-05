@@ -14,6 +14,7 @@
         android:id="@+id/search_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/textview"
         android:text="News Letter"
         android:textSize="35sp"
         android:layout_centerHorizontal="true"
@@ -22,8 +23,8 @@
 
     <TextView
         android:id="@+id/search_subtitle"
-
         android:layout_width="wrap_content"
+        style="@style/textview"
         android:layout_height="wrap_content"
         android:text="Get notified about the latest job vacancies"
         android:textSize="15sp"
@@ -33,15 +34,13 @@
 <android.support.design.widget.TextInputLayout
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
-
 android:textColorHint="#ffffff">
     <EditText
-
         android:layout_margin="5dp"
         android:padding="5dp"
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_style"
         android:hint="Enter your Email Address"/>
 </android.support.design.widget.TextInputLayout>
     <Button

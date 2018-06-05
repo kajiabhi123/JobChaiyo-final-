@@ -27,6 +27,8 @@ public class DetailsOfJobPostedByEmployers extends CommonMenuActivity
         education_required = (TextView) findViewById(R.id.education);
         company_name = (TextView) findViewById(R.id.company);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Job Details");
+
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if (bd != null) {

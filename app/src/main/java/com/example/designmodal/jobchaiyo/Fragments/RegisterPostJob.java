@@ -129,11 +129,11 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
 
     public boolean validate() {
         boolean valid = true;
-        if (CName.isEmpty() || CName.length() > 32) {
+        if (CName.isEmpty()) {
             et_CName.setError("Please Enter Valid Company Name");
             valid = false;
         }
-        if (CAddress.isEmpty() || CAddress.length() > 32) {
+        if (CAddress.isEmpty()) {
             et_CAddress.setError("Please Enter Valid Company Address");
             valid = false;
         }
@@ -153,11 +153,11 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
             et_OptEmail.setError("Please Enter Valid Email Address");
             valid = false;
         }
-        if (UserName.isEmpty() || UserName.length() > 32) {
+        if (UserName.isEmpty() ) {
             et_UserName.setError("Please Enter Valid Username");
             valid = false;
         }
-        if (Password.isEmpty() || Password.length() > 32) {
+        if (Password.isEmpty()) {
             et_Password.setError("Please Enter Valid Password");
             valid = false;
         }
@@ -237,18 +237,14 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
         String office = et_OfficeContact.getText().toString().trim();
         String mobile = et_Mobile.getText().toString().trim();
         String email = et_Email.getText().toString().trim();
-        // String reemail = et_ReEmail.getText().toString().trim();
         String optemail = et_OptEmail.getText().toString().trim();
         String username = et_UserName.getText().toString().trim();
         String password = et_Password.getText().toString().trim();
         String repassword = et_RePassword.getText().toString().trim();
-//        String tit=title.getText().toString().trim();
-//        String Image=imageToString();
 
 
         Call<User> call = apiInterface.performRegistration
                 (name, address, website, person, office, mobile, email, optemail, username, password, jobCategory, jobOwnership);
-//        Toast.makeText(getContext(), "registration function", Toast.LENGTH_SHORT).show();
 
         call.enqueue(new Callback<User>() {
             @Override
@@ -260,25 +256,21 @@ public class RegisterPostJob extends Fragment implements Service.GetJobCallback 
                     getFragmentManager().beginTransaction().replace(R.id.container, new LoginPostJob()).commit();
 
 
-//                    Toast.makeText(getContext(), "If condition ", Toast.LENGTH_SHORT).show();
                 } else if (response.body().getResponse().equals("exist")) {
 
                     prefConfig.displayToast("User already exist...Use your Email and Password for Login");
                     getFragmentManager().beginTransaction().replace(R.id.container, new LoginPostJob()).commit();
-//                    Toast.makeText(getContext(), "Else If exist  condition ", Toast.LENGTH_SHORT).show();
-//
 
                 } else if (response.body().getResponse().equals("error")) {
 
                     prefConfig.displayToast("Something went wrong...Please Try Again");
-//                    Toast.makeText(getContext(), "else If error condition ", Toast.LENGTH_SHORT).show();
 
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getContext(), "on failure condition ...Check your Internet Connection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "failed...Check your Internet Connection", Toast.LENGTH_SHORT).show();
             }
 
         });

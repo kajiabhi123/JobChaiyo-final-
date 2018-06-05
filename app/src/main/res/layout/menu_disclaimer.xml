@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/dismiss"
-        android:background="@drawable/button_style"
+        android:background="#6ca4cc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#fff"

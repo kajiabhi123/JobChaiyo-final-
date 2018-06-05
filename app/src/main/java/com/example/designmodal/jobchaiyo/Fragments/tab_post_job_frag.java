@@ -108,16 +108,16 @@ public class tab_post_job_frag extends Fragment implements Service.GetJobCallbac
 
     public boolean validate() {
         boolean valid = true;
-        if (jtitle.isEmpty() || jtitle.length() > 32) {
+        if (jtitle.isEmpty()) {
             jobtitle.setError("Please Enter Valid Job Title");
             valid = false;
         }
-        if (jvacancy.isEmpty() || jvacancy.length() > 1000) {
+        if (jvacancy.isEmpty()) {
             vacancy.setError("Number of Vacancy should not be Empty");
             valid = false;
         }
 
-        if (jareaName.isEmpty() || jareaName.length() > 43) {
+        if (jareaName.isEmpty()) {
             areaName.setError("Please Enter Valid Area Name");
             valid = false;
         }
@@ -234,7 +234,7 @@ public class tab_post_job_frag extends Fragment implements Service.GetJobCallbac
 
             @Override
             public void onFailure(Call<reqJob> call, Throwable t) {
-                prefConfig.displayToast("On failure...");
+                prefConfig.displayToast("Sorry..No inetrnet conncetoion");
             }
         });
         jobtitle.setText("");

@@ -1,4 +1,4 @@
-package com.example.designmodal.jobchaiyo.Activities;
+package com.example.designmodal.jobchaiyo.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,16 +22,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+/**
+ * Created by compware on 6/3/2018.
+ */
 
-public class RecycleView_job extends Fragment {
+public class Fragment_Internship extends Fragment {
     RecyclerView recyclerView;
     TextView loading;
     private SwipeRefreshLayout mSwipeLayout;
-
-
-    public RecycleView_job() {
-
-    }
 
     private LinearLayoutManager layoutManager;
 
@@ -41,7 +39,7 @@ public class RecycleView_job extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_recycle_view_job, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-        mSwipeLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeRefreshLayout);
+        mSwipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         loading = (TextView) view.findViewById(R.id.loading);
         return view;
 
@@ -52,8 +50,7 @@ public class RecycleView_job extends Fragment {
         super.onActivityCreated(savedInstanceState);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
-        {
+        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 calltry();
@@ -68,20 +65,22 @@ public class RecycleView_job extends Fragment {
         loading.setVisibility(View.VISIBLE);
         try {
             ApiInterface service = ApiClient.getRetrofit().create(ApiInterface.class);
-            Call<List<JobAttributes>> call = service.getJobInfo();
-
-            call.enqueue(new Callback<List<JobAttributes>>() {
+            Call<List<JobAttributes>> call = service.sendInternShip("Internship");
+            call.enqueue(new Callback<List<JobAttributes>>()
+            {
                 @Override
-                public void onResponse(Call<List<JobAttributes>> call, Response<List<JobAttributes>> response) {
+                public void onResponse(Call<List<JobAttributes>> call, Response<List<JobAttributes>> response)
+                {
                     //Log.d("onResponse", response.message());
 
                     List<JobAttributes> userList = response.body();
                     //layoutManager = new LinearLayoutManager(MainActivity.this);
-                    RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity(),userList);
+                    RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity(), userList);
                     recyclerView.setAdapter(recyclerViewAdapter);
                     loading.setVisibility(View.GONE);
                     mSwipeLayout.setRefreshing(false);
                 }
+
                 @Override
                 public void onFailure(Call<List<JobAttributes>> call, Throwable t) {
                     loading.setText("No Jobs Found");
@@ -89,10 +88,7 @@ public class RecycleView_job extends Fragment {
                     t.printStackTrace();
                 }
             });
-
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
         }
     }
 }
